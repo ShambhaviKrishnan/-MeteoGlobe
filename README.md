@@ -496,7 +496,6 @@ MIT License — free to use, modify, and deploy for personal and commercial proj
 
 ## 👤 Author
 
-~ Shambhavi Krishnan
 Built with Three.js, Chart.js and pure obsession.  
 Designed as a premium portfolio project.
 
