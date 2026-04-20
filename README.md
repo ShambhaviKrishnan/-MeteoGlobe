@@ -506,5 +506,6 @@ Designed as a premium portfolio project.
 Star the repo on GitHub — it helps others find it!
 
 ```
-https://github.com/shambhavikrishnan/meteoglobe
+https://github.com/ShambhaviKrishnan/-MeteoGlobe
+
 ```
