@@ -180,12 +180,6 @@ Only 15 cities are included by default.
 
 ---
 
-# License
-
-MIT License.
-
----
-
 # Author
 
 **Shambhavi Krishnan**
