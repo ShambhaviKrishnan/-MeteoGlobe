@@ -2,6 +2,8 @@
 
 A 3D globe-based weather visualization platform built with Three.js, Chart.js and vanilla JavaScript. No build step, no npm — just open and run.
 
+## Screenshots
+
 <img width="959" height="470" alt="image" src="https://github.com/user-attachments/assets/88c6a5eb-fc17-49d6-9693-19a65d325a59" />
 
 <img width="959" height="464" alt="image" src="https://github.com/user-attachments/assets/40fd15cd-fc8d-404a-8b4e-7d362d1a441d" />
@@ -9,7 +11,6 @@ A 3D globe-based weather visualization platform built with Three.js, Chart.js an
 <img width="959" height="470" alt="image" src="https://github.com/user-attachments/assets/09be5af6-74a9-45cd-8875-9c87ab518faa" />
 
 <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/d8db75f7-ae70-46a5-8efc-3f8639951b59" />
-
 
 ---
 
@@ -43,9 +44,11 @@ meteoglobe/
 ## Quick Start (Zero Setup)
 
 ### Method 1 — Double Click 
+
 ```
 1. Download meteoglobe.html
 2. Double-click to open in your browser
+```
 
 Some browsers block local file loading of external scripts (CORS). If the globe is blank, use Method 2.
 
@@ -53,9 +56,16 @@ Some browsers block local file loading of external scripts (CORS). If the globe 
 
 ### Method 2 — Python Local Server
 
+```bash
 cd path/to/meteoglobe
 python -m http.server 8080
-# open http://localhost:8080/meteoglobe.html
+```
+
+Then open:
+
+```
+http://localhost:8080/meteoglobe.html
+```
 
 ---
 
@@ -73,7 +83,9 @@ Time Machine (bottom center): drag to view ±15 days of data relative to today.
 
 Compare tool: select up to 4 cities to see a temperature comparison chart.
 
-Architecture
+---
+
+# Architecture
 
 Single self-contained HTML file, organized into:
 
@@ -82,20 +94,27 @@ Globe engine — Three.js scene, procedural Earth texture, atmosphere shader, st
 Interaction layer — drag/zoom, raycasting for click-select, hover tooltips
 Weather panel — city data binding, Chart.js rendering, forecast cards
 Layer system, timeline, search, compare — supporting UI modules
-Customization
-Adding a city
+
+---
+
+# Customization
+
+## Adding a city
 
 Edit the CITIES array (near the top of meteoglobe.html):
 
-javascript
+```javascript
 { name:'Berlin', country:'Germany', lat:52.52, lon:13.40,
   temp:15, hum:65, wind:22, pres:1013, uv:3, vis:16,
   feels:13, cond:'Cloudy', icon:'🌥', flag:'🇩🇪' }
-Connecting a Real Weather API
+```
+
+---
+## Connecting a Real Weather API
 
 Replace static data with live calls, e.g. using OpenWeatherMap:
 
-javascript
+```javascript
 const OWM_KEY = 'YOUR_API_KEY_HERE';
 
 async function fetchLiveWeather(lat, lon) {
@@ -113,33 +132,63 @@ async function fetchLiveWeather(lat, lon) {
     cond: d.weather[0].description,
   };
 }
+```
 
 Call this inside selectCity() and merge the result into the city object before rendering.
 
-Color theme
+---
+
+# Color theme
 
 Edit the CSS variables at the top of the file (--navy, --cyan, --purple, --blue) to change the entire theme.
 
-Dependencies (via CDN, no installation)
+---
+
+# Dependencies (via CDN, no installation)
 Library	Version	Purpose
 Three.js	r128	3D globe rendering, shaders, raycasting
 Chart.js	4.4.0	Charts
 Google Fonts	—	Orbitron, Rajdhani, JetBrains Mono
-Roadmap
+
+---
+
+# Roadmap
  Connect OpenWeatherMap API for live data
  Add more cities
  Express.js backend to proxy/cache API calls
  MongoDB to store historical data
  Mobile-optimized touch gestures
-Troubleshooting
 
-Globe is black: don't open via file:// in Chrome — use a local server (Quick Start Method 2). Charts not rendering: check the browser console; Chart.js loads from CDN and needs internet. Search not finding a city: only 15 cities are in the database — see Customization to add more.
+ ---
 
-License
+# Troubleshooting
+
+### Globe is black
+
+Use a local server instead of opening with `file://`.
+
+### Charts are missing
+
+Check that:
+
+- Internet connection is available
+- Chart.js CDN loads successfully
+
+### Search returns nothing
+
+Only 15 cities are included by default.
+
+---
+
+# License
 
 MIT License.
 
-Author
+---
+
+# Author
+
+**Shambhavi Krishnan**
 
 github.com/ShambhaviKrishnan/-MeteoGlobe
 
