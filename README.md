@@ -153,13 +153,13 @@ Google Fonts	—	Orbitron, Rajdhani, JetBrains Mono
 ---
 
 # Roadmap
- Connect OpenWeatherMap API for live data
- Add more cities
- Express.js backend to proxy/cache API calls
- MongoDB to store historical data
- Mobile-optimized touch gestures
+- [ ] Connect OpenWeatherMap API
+- [ ] Add more cities
+- [ ] Express.js backend
+- [ ] MongoDB historical storage
+- [ ] Mobile optimization
 
- ---
+---
 
 # Troubleshooting
 
